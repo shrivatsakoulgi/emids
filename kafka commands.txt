@@ -1,0 +1,33 @@
+1. Start Zookeeper..
+
+> .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+2. start Kafka server...
+
+> .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+3. create topic...
+
+> .\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic emids
+
+
+4. start producer console
+
+> .\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic emids
+
+
+5. start consumer console...
+
+> .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic emids
+
+	--> read all messages from beginning
+
+> .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic emids --from-beginning
+
+	--> Read from where the consumer was stopped and resumed later.
+
+	1.  auto.offset.reset=latest  in consumer.properties
+	2. run consumer with following command
+		
+> .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic emids --consumer.config .\config\consumer.properties
