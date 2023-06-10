@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "inputFilePath",
+  "type": "java.lang.String",
+  "description": "Contains path for the Input file to be read from."
+}]}
